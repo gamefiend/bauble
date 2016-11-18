@@ -1,0 +1,4 @@
+# pipe this file into bash to install dependencies
+# cat requirements.txt | bash
+pip install -e git+https://github.com/aparrish/pytracery.git#egg=tracery
+pip install Flask

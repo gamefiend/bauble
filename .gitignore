@@ -89,7 +89,7 @@ ENV/
 .ropeproject
 
 # SQLite db
-.db
+*.db
 
 # vim swap
-.swp
+*.swp

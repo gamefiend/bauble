@@ -1,3 +1,3 @@
-from bauble import app
+from bauble import app, startup
 
-app.run(debug=True)
+startup()

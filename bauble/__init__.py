@@ -6,6 +6,6 @@ from models import *
 from views import *
 from forms import *
 
-
-db.create_all()
-app.run()
+def startup():
+    db.create_all()
+    app.run()

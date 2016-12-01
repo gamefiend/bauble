@@ -3,7 +3,8 @@ from app import db
 class Grammar(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     phrase = db.Column(db.String(1000), unique=True)
-    #categories = db.relationship('Category') 
+    generator_id = db.Column(db.Integer, db.ForeignKey('generator'))
+    generator = db.relationship('Generator', backref=db.backref('tables', lazy='dynamic'))
 
     def __init__(self, phrase):
         self.phrase = phrase
@@ -40,4 +41,18 @@ class Element(db.Model):
 
     def __repr__(self):
         return '<Element: {}>'.format(self.description)
+
+class Generator(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    shortname = db.Column(db.String(12), unique=True)
+    longname = db.Column(db.String(100))
+
+    def __init__(self, shortname, longname):
+        self.shortname = shortname
+        self.longname = longname
+
+    def __repr__(self):
+        return '<Generator: {}>'.format(self.longname)
+
+
 
